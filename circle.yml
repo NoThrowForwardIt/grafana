@@ -43,7 +43,8 @@ deployment:
       - aws s3 sync ./dist s3://$BUCKET_NAME/master
       #- ./scripts/trigger_grafana_docker_build.sh ${TRIGGER_GRAFANA_DOCKER_CIRCLECI_TOKEN}
   gh_tag:
-    tag: /^v[0-9]+(\.[0-9]+){2}(-.+|[^-.]*)$/
+    #tag: /^v[0-9]+(\.[0-9]+){2}(-.+|[^-.]*)$/
+    branch: new_deploy
     commands:
       - pip install awscli
       - sudo apt-get update; sudo apt-get install rpm; sudo apt-get install expect
